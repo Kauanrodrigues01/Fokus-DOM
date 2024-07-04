@@ -1,0 +1,13 @@
+@use '../abstract/variaveis';
+header{
+    padding: 0 24px;
+    .app__logo-figure{
+        display: flex;
+        justify-content: center;
+        margin: 4.5rem 0;
+        .app__logo-image{
+            width: 100%;
+            max-width: 156px;
+        }
+    }
+}

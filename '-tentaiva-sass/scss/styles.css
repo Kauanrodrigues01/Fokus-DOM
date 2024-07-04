@@ -1,0 +1,106 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header {
+  padding: 0 24px;
+}
+header .app__logo-figure {
+  display: flex;
+  justify-content: center;
+  margin: 4.5rem 0;
+}
+header .app__logo-figure .app__logo-image {
+  width: 100%;
+  max-width: 156px;
+}
+
+.app__section-banner-container {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.app__section-banner-container .app__title {
+  line-height: 39px;
+  font-size: 26px;
+  font-style: normal;
+  color: #FFF;
+  font-weight: 200;
+}
+.app__section-banner-container .app__title .app__title-strong {
+  font-weight: 500;
+}
+.app__section-banner-container .app__image-figure .app__image {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html {
+  background: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+  min-height: 100vh;
+  font-size: 10px;
+}
+
+body {
+  min-height: 100vh;
+  background: url("/imagens/pattern.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Unbounded", cursive;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,28 @@
+@use '../abstract/variaveis';
+
+.app__section-banner-container{
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .app__title{
+        line-height: 39px;
+        font-size: 26px;
+        font-style: normal;
+        color: variaveis.$color-secondary;
+        font-weight: 200;
+
+        .app__title-strong{
+            font-weight: 500;
+        }
+    }
+
+    .app__image-figure{
+        .app__image{
+            width: 100%;
+        }
+    }
+    
+}

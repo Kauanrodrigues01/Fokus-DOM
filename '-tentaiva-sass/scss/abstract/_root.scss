@@ -1,0 +1,22 @@
+@use 'variaveis';
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+html {
+    background: variaveis.$gradient-foco;
+    min-height: 100vh;
+    font-size: 10px;
+}
+
+body {
+    min-height: 100vh;
+    background: url("/imagens/pattern.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', cursive;
+}
