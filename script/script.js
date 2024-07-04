@@ -109,7 +109,10 @@ const contagemRegressiva = ()=>{
 
 const iniciarOuPausar = () => {
     if(intervaloId){
+        audioPausa.play()
         pausar()
+        imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
+        ComecarPausarBt.textContent = 'Começar'
         return
     }
     audioPlay.play()
