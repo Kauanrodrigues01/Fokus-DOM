@@ -38,7 +38,7 @@ musicaFocoInput.addEventListener('change', ()=>{
 focoBt.addEventListener('click', () => {
     imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
     ComecarPausarBt.textContent = 'Começar'
-    zerar()
+    pausar()
     tempoDecorridoEmSegundos = 1500
     alterarModoDeTempo('foco',  focoBt, '25:00')
 })
@@ -46,7 +46,7 @@ focoBt.addEventListener('click', () => {
 curtoBt.addEventListener('click', () => {
     imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
     ComecarPausarBt.textContent = 'Começar'
-    zerar()
+    pausar()
     tempoDecorridoEmSegundos = 300
     alterarModoDeTempo('descanso-curto', curtoBt, '05:00')
 })
@@ -54,7 +54,7 @@ curtoBt.addEventListener('click', () => {
 longoBt.addEventListener('click', () => {
     imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
     ComecarPausarBt.textContent = 'Começar'
-    zerar()
+    pausar()
     tempoDecorridoEmSegundos = 900
     alterarModoDeTempo('descanso-longo', longoBt, '15:00')
 })
@@ -102,13 +102,14 @@ const contagemRegressiva = ()=>{
     } else{
         audioBeep.play()
         alert('Tempo finalizado!')
-        zerar()
+        pausar()
         return
     }
 }
 
 const iniciarOuPausar = () => {
     if(intervaloId){
+        pausar()
         return
     }
     audioPlay.play()
@@ -117,7 +118,7 @@ const iniciarOuPausar = () => {
     ComecarPausarBt.textContent = 'Pausar'
 }
 
-const zerar = () => {
+const pausar = () => {
     clearInterval(intervaloId)
     intervaloId = null
 }
