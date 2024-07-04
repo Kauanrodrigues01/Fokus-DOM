@@ -21,7 +21,9 @@ const audioPlay = new Audio('/sons/play.wav')
 const audioPausa = new Audio('/sons/pause.mp3')
 const audioBeep = new Audio('/sons/beep.mp3')
 const imgBtComecar = startPauseBt.children[0]
-let tempoDecorridoEmSegundos = 5
+const ComecarPausarBt = startPauseBt.children[1]
+const tempoNaTela = document.querySelector('#timer')
+let tempoDecorridoEmSegundos = 1500
 let intervaloId = null
 
 musicaFocoInput.addEventListener('change', ()=>{
@@ -34,19 +36,32 @@ musicaFocoInput.addEventListener('change', ()=>{
 })
 
 focoBt.addEventListener('click', () => {
+    imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
+    ComecarPausarBt.textContent = 'Começar'
+    zerar()
+    tempoDecorridoEmSegundos = 1500
     alterarModoDeTempo('foco',  focoBt, '25:00')
 })
 
 curtoBt.addEventListener('click', () => {
+    imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
+    ComecarPausarBt.textContent = 'Começar'
+    zerar()
+    tempoDecorridoEmSegundos = 300
     alterarModoDeTempo('descanso-curto', curtoBt, '05:00')
 })
 
 longoBt.addEventListener('click', () => {
+    imgBtComecar.setAttribute('src', '/imagens/play_arrow.png')
+    ComecarPausarBt.textContent = 'Começar'
+    zerar()
+    tempoDecorridoEmSegundos = 900
     alterarModoDeTempo('descanso-longo', longoBt, '15:00')
 })
 
 // Função para alternar o modo de descanso
 const alterarModoDeTempo = (contexto, el, temporizador) => {
+    mostrarTempo()
     html.setAttribute('data-contexto', contexto)
     banner.setAttribute('src', `/imagens/${contexto}.png`)
 
@@ -83,30 +98,38 @@ const contagemRegressiva = ()=>{
     if (tempoDecorridoEmSegundos > 0){
         tempoDecorridoEmSegundos -= 1
         console.log('temporizador: ' + tempoDecorridoEmSegundos)
+        mostrarTempo()
     } else{
-        zerar()
         audioBeep.play()
         alert('Tempo finalizado!')
+        zerar()
         return
     }
 }
 
 const iniciarOuPausar = () => {
     if(intervaloId){
-        audioPausa.volume = 0.7
-        audioPausa.play()
-        imgBtComecar.setAttribute('scr', 'imagens/play_arrow.png')
-        zerar()
         return
     }
     audioPlay.play()
-    imgBtComecar.setAttribute('src', '/imagens/pause.png')
     intervaloId = setInterval(contagemRegressiva, 1000)
+    imgBtComecar.setAttribute('src', '/imagens/pause.png')
+    ComecarPausarBt.textContent = 'Pausar'
 }
 
 const zerar = () => {
     clearInterval(intervaloId)
     intervaloId = null
 }
+
+const mostrarTempo = () => {
+    const tempo = new Date(tempoDecorridoEmSegundos * 1000)
+    const tempoFormatado = tempo.toLocaleTimeString('pt-br', {minute: '2-digit', second: '2-digit'})
+    
+    
+    tempoNaTela.innerHTML = `${tempoFormatado}`
+}
+
+mostrarTempo()
 
 startPauseBt.addEventListener('click', iniciarOuPausar)
